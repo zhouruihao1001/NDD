@@ -1,6 +1,6 @@
 ## NDD
 
-The code for our paper accepted by  **IROS 2022**: NDD_A Normal Distribution Based 3D Point Cloud Descriptor for Loop Closure Detection
+The code for our paper accepted by  **IROS 2022** (NDD:A Normal Distribution Based 3D Point Cloud Descriptor for Loop Closure Detection)
 
 
 We present a global descriptor, named Normal Distribution Descriptor (NDD), for 3D point cloud loop closure detection. The descriptor encodes both the probability density score and entropy of a point cloud as the descriptor. We also propose a fast rotation alignment process and use correlation coefficient as the similarity between descriptors. 

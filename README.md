@@ -19,7 +19,7 @@ Demo video can be found at: https://youtu.be/OYfp4tURhr0
 This work was supported in part by the National Natural Science Foundation of China under Grant No. 62173096, in part by the Leading Talents Program of Guangdong Province under Grant No. 2016LJ06G498 and 2019QN01X761. 
 
 
-
+```
 @INPROCEEDINGS { zhou-2018-iros,
   author = {Ruihao Zhou, Li He, Hong Zhang, Xubin Lin, Yisheng Guan},
   title = { NDD: A Normal Distribution Based {3D} Point Cloud Descriptor for Loop Closure Detection },
@@ -28,3 +28,5 @@ This work was supported in part by the National Natural Science Foundation of Ch
   month = { Oct. },
   address = { Japan }
 }
+```
+

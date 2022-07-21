@@ -22,7 +22,7 @@ This work was supported in part by the National Natural Science Foundation of Ch
 ```
 @INPROCEEDINGS { IROS-2022-Zhou,
   author = {Ruihao Zhou, Li He, Hong Zhang, Xubin Lin, Yisheng Guan},
-  title = { NDD: A Normal Distribution Based {3D} Point Cloud Descriptor for Loop Closure Detection },
+  title = { NDD: A Normal Distribution Based 3D Point Cloud Descriptor for Loop Closure Detection },
   booktitle = { Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems },
   year = { 2022 },
   month = { Oct. },

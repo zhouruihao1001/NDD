@@ -8,7 +8,7 @@ We present a global descriptor, named Normal Distribution Descriptor (NDD), for 
 ### Demo
 
 
-To run the demo, simply run demo.m.
+To run the demo, simply run NDD_demo.m.
 
 The code will be release soon.
 

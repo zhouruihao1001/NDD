@@ -7,16 +7,13 @@ We present a global descriptor, named Normal Distribution Descriptor (NDD), for 
 
 ### Demo
 
-<!--
+
 To run the demo, simply run demo.m.
--->
+
 The code will be release soon.
 
 Demo video can be found at: https://youtu.be/OYfp4tURhr0
 
-### Acknowledgement
-
-This work was supported in part by the National Natural Science Foundation of China under Grant No. 62173096, in part by the Leading Talents Program of Guangdong Province under Grant No. 2016LJ06G498 and 2019QN01X761. 
 
 
 ```

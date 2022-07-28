@@ -10,7 +10,6 @@ We present a global descriptor, named Normal Distribution Descriptor (NDD), for 
 
 To run the demo, simply run NDD_demo.m.
 
-The code will be release soon.
 
 Demo video can be found at: https://youtu.be/OYfp4tURhr0
 

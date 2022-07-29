@@ -17,6 +17,8 @@ KITTI1 = [data_dir, '001684.bin'];
 KITTI2 = [data_dir, '000209.bin'];
 ptcloud1 = readBin(KITTI1);
 ptcloud2 = readBin(KITTI2);
+% pcshow(ptcloud1);
+
 %% NDD
 tic;
 NDD1 = NDD(ptcloud1, N_s, N_r, range);

@@ -73,12 +73,12 @@ double NDDManager::CorrBtnNDD ( MatrixXd &_ndd1, MatrixXd &_ndd2 )
     auto ave1 = _ndd1.mean();
     auto ave2 = _ndd2.mean();
 
-	//correlation coefficient NDDs_corr
+    //correlation coefficient NDDs_corr
     auto A=  _ndd1 - Eigen::MatrixXd::Ones(_ndd1.rows(), _ndd1.cols()) * ave1;
     auto B = _ndd2 - Eigen::MatrixXd::Ones(_ndd2.rows(), _ndd2.cols()) * ave2;
-	auto R1 = A .cwiseProduct(B);
+    auto R1 = A .cwiseProduct(B);
 
-	double r1,r2, r3;
+    double r1,r2, r3;
     r1 = R1.sum();
     r2 = A.squaredNorm();
     r3 = B.squaredNorm();

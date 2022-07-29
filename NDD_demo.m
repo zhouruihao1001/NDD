@@ -1,3 +1,5 @@
+%R. Zhou and L. He. NDD:  A 3D Point Cloud Descriptor  Based on Normal Distribution for Loop Closure Detection. IROS2022.
+
 %% Acknowledgement
 %Thanks for scancontext and M2DP code authors.
 

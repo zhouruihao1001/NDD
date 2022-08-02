@@ -85,7 +85,7 @@ public:
     // loop thres
     const double SEARCH_RATIO = 0.1; // for fast comparison, no Brute-force, but search 10 % is okay. 
 
-    const double DIST_THRES = 0.3; // 0.3-0.4 is good choice for hard threshold
+    const double DIST_THRES = 0.35; // 0.3-0.4 is good choice for hard threshold
 
     // config 
     const int    TREE_MAKING_PERIOD_ = 10; // i.e., remaking tree frequency, to avoid non-mandatory every remaking, to save time cost / in the LeGO-LOAM integration, it is synchronized with the loop detection callback (which is 1Hz) so it means the tree is updated evrey 10 sec. But you can use the smaller value because it is enough fast ~ 5-50ms wrt N.

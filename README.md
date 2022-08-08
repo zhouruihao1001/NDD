@@ -18,7 +18,7 @@ Demo video can be found at: https://youtu.be/OYfp4tURhr0
 ```
 @INPROCEEDINGS { IROS-2022-Zhou,
   author = {Ruihao Zhou, Li He, Hong Zhang, Xubin Lin, Yisheng Guan},
-  title = { NDD: A Normal Distribution Based 3D Point Cloud Descriptor for Loop Closure Detection },
+  title = { NDD: A 3D Point Cloud Descriptor Based on Normal Distribution for Loop Closure Detection },
   booktitle = { Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems },
   year = { 2022 },
   month = { Oct. },

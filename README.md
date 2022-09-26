@@ -7,7 +7,7 @@ We present a global descriptor, named Normal Distribution Descriptor (NDD), for 
 ### Related Paper
 
 ### Demo
-
+https://arxiv.org/submit/4426198/view
 
 To run the demo, simply run NDD_demo.m.
 

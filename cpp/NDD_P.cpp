@@ -216,7 +216,7 @@ MatrixXd NDDManager::makeNDD( pcl::PointCloud<NDDPointType> & _scan_down )
                 MatrixXd points_in_cell= points_cell[row_idx*PC_NUM_SECTOR+(col_idx)];
                 for (int k=1;k<points_in_cell.rows();k++)
                 {
-                    if(points_in_cell(k,0) < 1e-5)
+                    if(abs(points_in_cell(k,0)) < 1e-5)
                         {
                             points_in_cell = points_in_cell.block(1,0,k-1,3);
                             break;

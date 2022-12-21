@@ -1,4 +1,4 @@
-function[ D ] = NDD_P( ptcloud,N_sector,N_ring,range )
+function[ D ] = NDD( ptcloud,N_sector,N_ring,range )
 %% Downsampling
 gridStep = 0.75; % uniform downsampling(m). 
 ptcloud = pcdownsample(ptcloud, 'gridAverage', gridStep);
@@ -16,7 +16,7 @@ end
 R = [V(:,1),V(:,2),cross(V(:,1),V(:,2))];
 
 fd = R*fd;%feature direction
-yaw = atan( fd(2,:)/fd(1,:))+pi/2;
+yaw = std::atan( fd(2,:)/fd(1,:))+pi/2;
 A = [cos(yaw) sin(yaw) 0 ; ...
     -sin(yaw) cos(yaw) 0 ; ...
     0 0 1 ];
@@ -78,7 +78,8 @@ for ith_point =1:num_points
     
 end
 %% Descriptor
-D = zeros(N_ring, N_sector);
+D = zeros(N_ring, N_sector,2);
+
 N = 3;
 min_num_thres = 5; %  noise-filter para.
 
@@ -109,15 +110,20 @@ for ith_ring = 1:N_ring
                     % disregard the contributions of this cell.
                     continue;
                 end
-
+               
+                %Entropy
+                entropy = (N/2)*(1+log(2*pi)) + 0.5*log(det(points_in_cell_cov));% ln
                 % Probability Density
                 q = points_in_cell - points_in_cell_mean; 
                 gaussianValue =exp( -q / points_in_cell_cov * q'/2);
                 score = trace(gaussianValue);     
         else
+            entropy = 0;
             score = 0;
         end
-        D(ith_ring, ith_sector)= score;
+        D(ith_ring, ith_sector,1)= score;
+        D(ith_ring, ith_sector,2)= entropy;  
+
     end
 end
 

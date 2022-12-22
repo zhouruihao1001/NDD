@@ -45,7 +45,7 @@ public:
     // User-side API
     void makeAndSaveNDDAndKeys(pcl::PointCloud<NDDPointType> &_scan_down);
     
-    std::pair<int, float> detectLoopClosureID(); // int: nearest node index, float: relative yaw
+    std::tuple<int, int, float> detectLoopClosureID(); // int: nearest node index, float: relative yaw
 
 public:
     
@@ -57,15 +57,15 @@ public:
     const int max_num_in_cell = 30;//normally 5-50 points in one cell after down-sampling.
     
     // tree
-    const size_t NUM_EXCLUDE_RECENT = 30; // TODO 1 for testing, default 100. simply just keyframe gap, but node position distance-based exclusion is ok.
-    const int NUM_CANDIDATES_FROM_TREE = 20; // 10-25 is enough.
+    const size_t NUM_EXCLUDE_RECENT = 100; // TODO 1 for testing, default 100. simply just keyframe gap, but node position distance-based exclusion is ok.
+    const int NUM_CANDIDATES_FROM_TREE = 25; // 10-25 is enough.
     
     // loop thres
     const double SEARCH_RATIO = 0.1; // for fast comparison, no Brute-force, but search 10 % is okay.
-    const double DIST_THRES = 0.35; // 0.3-0.4 is good choice for hard threshold
+    const double DIST_THRES = 0.4; // 0.3-0.4 is good choice for hard threshold
     
     // config 
-    const int TREE_MAKING_PERIOD_ = 10; // i.e., remaking tree frequency, to avoid non-mandatory every remaking, to save time cost / in the LeGO-LOAM integration, it is synchronized with the loop detection callback (which is 1Hz) so it means the tree is updated evrey 10 sec. But you can use the smaller value because it is enough fast ~ 5-50ms wrt N.
+    const int TREE_MAKING_PERIOD_ = 1; // i.e., remaking tree frequency, to avoid non-mandatory every remaking, to save time cost / in the LeGO-LOAM integration, it is synchronized with the loop detection callback (which is 1Hz) so it means the tree is updated evrey 10 sec. But you can use the smaller value because it is enough fast ~ 5-50ms wrt N.
     int tree_making_period_conter = 0;
     
     // data 

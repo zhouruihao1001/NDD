@@ -17,6 +17,7 @@
 // pcl
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
+#include <pcl/correspondence.h>
 
 namespace demo
 {
@@ -69,6 +70,18 @@ inline void index_keyframes(const std::filesystem::path &keyframe_dir, std::vect
     }
     
     std::copy(sorted_by_name.begin(), sorted_by_name.end(), std::back_inserter(keyframe_paths));
+}
+
+template <typename T>
+inline float correspondence_distance(const T& point, const T& point2)
+{
+    return std::sqrt(point.x * point2.x + point.y * point2.y + point.z * point2.z);
+}
+
+template <typename T>
+inline pcl::Correspondence generate_correspondence(int curr_id, int loop_id, const pcl::PointCloud<T>& pcl)
+{
+    return pcl::Correspondence(curr_id, loop_id, correspondence_distance(pcl.points[curr_id], pcl.points[loop_id]));
 }
 
 } // end namespace demo

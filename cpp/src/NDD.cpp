@@ -250,9 +250,10 @@ void NDDManager::makeAndSaveNDDAndKeys(pcl::PointCloud<NDDPointType> &_scan_down
 } // NDDManager::makeAndSaveNDDAndKeys
 
 
-std::pair<int, float> NDDManager::detectLoopClosureID()
+std::tuple<int, int, float> NDDManager::detectLoopClosureID()
 {
-    int loop_id{-1}; // init with -1, -1 means no loop (== LeGO-LOAM's variable "closestHistoryFrameID")
+    int loop_id = -1; // init with -1, -1 means no loop (== LeGO-LOAM's variable "closestHistoryFrameID")
+    int curr_id = 0;
     
     auto curr_key = polarcontext_invkeys_mat_.back(); // current observation (query)
     auto curr_desc = polarcontexts_.back(); // current observation (query)
@@ -262,8 +263,7 @@ std::pair<int, float> NDDManager::detectLoopClosureID()
     {
         std::cout.precision(3);
         std::cout << "[Not loop] < NUM_EXCLUDE_RECENT\n";
-        std::pair<int, float> result{loop_id, 0.0};
-        return result; // Early return 
+        return { curr_id, loop_id, 0.0 }; // Early return
     }
     
     // tree_ reconstruction (not mandatory to make everytime)
@@ -316,6 +316,8 @@ std::pair<int, float> NDDManager::detectLoopClosureID()
     }
     t_calc_dist.toc("Distance calc");
     
+    curr_id = polarcontexts_.size() - 1;
+    
     /* 
      * loop threshold check
      */
@@ -323,17 +325,17 @@ std::pair<int, float> NDDManager::detectLoopClosureID()
     {
         loop_id = nn_idx;
         std::cout.precision(3);
-        std::cout << "[Loop found] Nearest distance: " << min_dist << " btn " << polarcontexts_.size() - 1 << " and "
+        std::cout << "[Loop found] Nearest distance: " << min_dist << " btn " << curr_id << " and "
                   << nn_idx << ".\n";
         std::cout << "[Loop found] yaw diff: " << nn_align * PC_UNIT_SECTORANGLE << " deg.\n";
     } else
     {
         std::cout.precision(3);
-        std::cout << "[Not loop] Nearest distance: " << min_dist << " btn " << polarcontexts_.size() - 1 << " and "
+        std::cout << "[Not loop] Nearest distance: " << min_dist << " btn " << curr_id << " and "
                   << nn_idx << ".\n";
         std::cout << "[Not loop] yaw diff: " << nn_align * PC_UNIT_SECTORANGLE << " deg.\n";
     }
     
     float yaw_diff_rad = deg2rad(nn_align * PC_UNIT_SECTORANGLE);
-    return { loop_id, yaw_diff_rad };
+    return { curr_id, loop_id, yaw_diff_rad };
 } // NDDManager::detectLoopClosureID

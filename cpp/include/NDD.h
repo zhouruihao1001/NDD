@@ -57,7 +57,7 @@ public:
     const int max_num_in_cell = 30;//normally 5-50 points in one cell after down-sampling.
     
     // tree
-    const size_t NUM_EXCLUDE_RECENT = 1; // TODO 0 for testing, default 100. simply just keyframe gap, but node position distance-based exclusion is ok.
+    const size_t NUM_EXCLUDE_RECENT = 30; // TODO 1 for testing, default 100. simply just keyframe gap, but node position distance-based exclusion is ok.
     const int NUM_CANDIDATES_FROM_TREE = 20; // 10-25 is enough.
     
     // loop thres

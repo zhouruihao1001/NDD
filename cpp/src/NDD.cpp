@@ -260,6 +260,8 @@ std::pair<int, float> NDDManager::detectLoopClosureID()
     // KD-tree
     if (polarcontext_invkeys_mat_.size() < NUM_EXCLUDE_RECENT + 1)
     {
+        std::cout.precision(3);
+        std::cout << "[Not loop] < NUM_EXCLUDE_RECENT\n";
         std::pair<int, float> result{loop_id, 0.0};
         return result; // Early return 
     }

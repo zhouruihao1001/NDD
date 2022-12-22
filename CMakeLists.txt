@@ -12,6 +12,6 @@ target_link_libraries(ndd ${PCL_LIBRARY_DIRS} Eigen3::Eigen)
 set_source_files_properties(cpp/src/NDD.cpp PROPERTIES COMPILE_FLAGS -Wall -Weffc++ -pedantic)
 
 add_executable(ndd_demo demo/NDD_demo.cpp)
-target_include_directories(ndd_demo PRIVATE ${PCL_INCLUDE_DIRS} ${Eigen3_INCLUDE_DIRS} cpp/include)
+target_include_directories(ndd_demo PRIVATE ${PCL_INCLUDE_DIRS} ${Eigen3_INCLUDE_DIRS} cpp/include cpp)
 target_link_libraries(ndd_demo ndd ${PCL_LIBRARIES} Eigen3::Eigen)
 set_source_files_properties(demo/NDD_demo.cpp PROPERTIES COMPILE_FLAGS -Wall -Weffc++ -pedantic)

@@ -29,7 +29,7 @@ theta = theta + pi;
 
 r_step = max_range / num_ring;
 r_index = ceil(r/r_step);
-r_index(r_index>20) = 20;
+r_index(r_index>num_ring) = num_ring;
 
 s_step = angle_one_sector*pi/180;
 theta(theta>2*pi-eps) = 0;
